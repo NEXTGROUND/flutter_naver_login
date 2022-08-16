@@ -80,16 +80,30 @@ class FlutterNaverLoginPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
     try {
       e = mContext?.packageName;
       e?.let {
+        Log.d("GOO", "try - start")
+
         ai = mContext?.packageManager?.getApplicationInfo(it, PackageManager.GET_META_DATA)
+        Log.d("GOO", "ai: " + ai)
 
         bundle = ai?.metaData;
+        Log.d("GOO", "bundle: " + bundle)
 
         if(bundle != null) {
           OAUTH_CLIENT_ID = bundle?.getString("com.naver.sdk.clientId").toString();
           OAUTH_CLIENT_SECRET = bundle?.getString("com.naver.sdk.clientSecret").toString();
           OAUTH_CLIENT_NAME = bundle?.getString("com.naver.sdk.clientName").toString();
+
+          Log.d("GOO", "OAUTH_CLIENT_ID: " + OAUTH_CLIENT_ID)
+          Log.d("GOO", "OAUTH_CLIENT_SECRET: " + OAUTH_CLIENT_ID)
+          Log.d("GOO", "OAUTH_CLIENT_NAME: " + OAUTH_CLIENT_ID)
+
           NaverIdLoginSDK.showDevelopersLog(true);
+
+          Log.d("GOO", "mContext: " + mContext)
+
           NaverIdLoginSDK.initialize(mContext!!, OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET, OAUTH_CLIENT_NAME);
+          Log.d("GOO", "initialize()")
+
         }
       }
     } catch (e: Exception) {
