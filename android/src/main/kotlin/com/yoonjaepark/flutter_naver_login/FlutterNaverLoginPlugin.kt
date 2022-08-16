@@ -202,6 +202,18 @@ class FlutterNaverLoginPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   }
 
   private fun login(result: Result) {
+    try {
+      NaverIdLoginSDK.initialize(
+        mContext!!,
+        OAUTH_CLIENT_ID,
+        OAUTH_CLIENT_SECRET,
+        OAUTH_CLIENT_NAME
+      )
+    } catch (e: Exception) {
+      Log.d("GOO", "login - Exception")
+      e.printStackTrace()
+    }
+
     val mOAuthLoginHandler = object : OAuthLoginCallback {
       override fun onSuccess() {
         currentAccount(result)
