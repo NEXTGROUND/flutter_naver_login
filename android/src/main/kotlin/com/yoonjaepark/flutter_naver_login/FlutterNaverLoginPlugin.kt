@@ -71,6 +71,8 @@ class FlutterNaverLoginPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   }
 
   private fun onAttachedToEngine(applicationContext: Context, binaryMessenger: BinaryMessenger) {
+    Log.d("GOO", "ENGINE START")
+
     NaverIdLoginSDK.showDevelopersLog(true)
     mContext = applicationContext
     methodChannel = MethodChannel(binaryMessenger, "flutter_naver_login")
@@ -91,6 +93,7 @@ class FlutterNaverLoginPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
         }
       }
     } catch (e: Exception) {
+      Log.d("GOO", "EXCEPTION")
       e.printStackTrace()
     }
   }
@@ -124,6 +127,8 @@ class FlutterNaverLoginPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   // in the same class.
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
+    Log.d("GOO", "onMethodCall:" + call.method)
+
     when (call.method) {
       METHOD_LOG_IN -> this.login(result)
       METHOD_LOG_OUT -> this.logout(result)
