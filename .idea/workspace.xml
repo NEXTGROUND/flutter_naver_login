@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="417a7dc5-bb75-405e-a3e8-2c554d6fc7a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/yoonjaepark/flutter_naver_login/FlutterNaverLoginPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/yoonjaepark/flutter_naver_login/FlutterNaverLoginPlugin.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
