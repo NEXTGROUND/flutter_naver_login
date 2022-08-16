@@ -101,13 +101,22 @@ class FlutterNaverLoginPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
 
           Log.d("GOO", "mContext: " + mContext)
 
-          NaverIdLoginSDK.initialize(mContext!!, OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET, OAUTH_CLIENT_NAME);
+//          NaverIdLoginSDK.initialize(mContext!!, OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET, OAUTH_CLIENT_NAME);
+
+          NaverIdLoginSDK.apply {
+            showDevelopersLog(true)
+            initialize(mContext!!, OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET, OAUTH_CLIENT_NAME)
+            isShowMarketLink = true
+            isShowBottomTab = true
+          }
+
           Log.d("GOO", "initialize()")
 
         }
       }
     } catch (e: Exception) {
       Log.d("GOO", "EXCEPTION")
+      NaverIdLoginSDK.initialize(mContext!!, OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET, OAUTH_CLIENT_NAME);
       e.printStackTrace()
     }
   }
